@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# ReactJS Application NGMUSIC!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Repositori ini adalah codebase Frontend project search itunes
 
-## Available Scripts
+## Get Started
 
-In the project directory, you can run:
+1. Install [Node.js v16.20](https://nodejs.org/en/) atau diatasnya
+2. Install [Yarn v1.22](https://yarnpkg.com/) atau diatasnya
+3. Clone repositori ini
+4. Jalankan perintah `yarn install` atau `npm install`
+5. Jalankan perintah `yarn serve` atau `npm run serve`
+6. Akses web di `http://localhost:3000`
 
-### `yarn start`
+## Folder Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `public`: berisi asset yang bisa akses public
+- `src`: berisi semua folder pendukung
+  - `components`: berisi reusable komponen yang dipakai di banyak tempat
+  - `routes`: default routes. Disini tidak boleh ada file/folder lain selain untuk routes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Important Branch
 
-### `yarn test`
+Branch `develop` adalah default branch. Setiap kali developer ingin membuat branch baru yang ter-update, **_maka wajib membuat dari branch develop sebagai source_**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Commit Rule
 
-### `yarn build`
+Berikan pesan commit dengan template berikut:
+`type(scope): message`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `type`:
+  - `feat`: jika yang dilakukan ada membuat fitur baru.
+  - `fix`: jika yang dilakukan adalah fixing major bug.
+  - `hot-fix`: jika yang dilakukan adalah fixing minor bug.
+  - `docs`: jika yang dilakukan adalah update readme.
+- `scope`: mendeskripsikan bagian yang terkena dampak perubahan code.
+- `message`: pesan commit secara singkat yang mendeskripsikan perubahan yang dilakukan.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+Contoh:
+- feat(login): add layouting login
+- feat(approval): add detail section
+- fix(konfirmasi): refactor code if else kondisi
+- docs(main readme): update folder structure
+```
