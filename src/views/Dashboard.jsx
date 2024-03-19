@@ -10,25 +10,24 @@ import { getSearchResult } from 'src/store/actions/music.action'
 
 export default function Dashboard() {
   const dispatch = useDispatch()
-  const dataList = useSelector((state) => state.music.musicsList)
+  const {
+    musicsList: dataList,
+    isLoading: loading,
+    params,
+  } = useSelector((state) => state.music)
 
   const [searchResult, setSearchResult] = useState('')
-  const [loading, setLoading] = useState(false)
 
   const handleSearch = (event) => {
-    setLoading(true)
-    if (!dataList) {
-      dispatch(getSearchResult(event))
-      setLoading(false)
-    }
+    dispatch(getSearchResult(event))
   }
 
   return searchResult?.length ? (
     <div className="overflow-x-hidden">
       <Header
-        onClickSearch={(v) => {
-          setSearchResult(v)
-          handleSearch(v)
+        onClickSearch={(event) => {
+          setSearchResult(event)
+          handleSearch({ term: event, limit: 10 })
         }}
       />
 
@@ -43,20 +42,36 @@ export default function Dashboard() {
 
       <section className="px-[15px] max-w-[1200px] mx-auto">
         {!loading ? (
-          <div className="space-y-5 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
-            {dataList?.map((item, i) => {
-              return (
-                <MusicCard
-                  key={i}
-                  thumbnail={item?.artworkUrl100}
-                  genre={item?.primaryGenreName}
-                  title={item?.trackName}
-                  artist={item?.artistName}
-                  price={item?.trackPrice}
-                />
-              )
-            })}
-          </div>
+          <>
+            <div className="space-y-5 sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+              {dataList?.map((item, i) => {
+                return (
+                  <MusicCard
+                    key={i}
+                    thumbnail={item?.artworkUrl100}
+                    genre={item?.primaryGenreName}
+                    title={item?.trackName}
+                    artist={item?.artistName}
+                    price={item?.trackPrice}
+                  />
+                )
+              })}
+            </div>
+            <div className="text-center  w-full">
+              <button
+                type="button"
+                onClick={() =>
+                  handleSearch({
+                    term: params.term,
+                    limit: params.limit + 10,
+                  })
+                }
+                className="bg-gray-200 w-40 rounded-xl right-0 mx-auto py-2 my-3 text-gray-500"
+              >
+                Load More
+              </button>
+            </div>
+          </>
         ) : (
           <p>Loading...</p>
         )}
@@ -70,7 +85,7 @@ export default function Dashboard() {
           <FormSearch
             onSearch={(v) => {
               setSearchResult(v)
-              handleSearch(v)
+              handleSearch({ term: v, limit: 10 })
             }}
           />
         </footer>
