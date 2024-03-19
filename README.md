@@ -8,15 +8,22 @@ Repositori ini adalah codebase Frontend project search itunes
 2. Install [Yarn v1.22](https://yarnpkg.com/) atau diatasnya
 3. Clone repositori ini
 4. Jalankan perintah `yarn install` atau `npm install`
-5. Jalankan perintah `yarn serve` atau `npm run serve`
+5. Jalankan perintah `yarn dev` atau `npm run dev`
 6. Akses web di `http://localhost:3000`
 
 ## Folder Structure
 
 - `public`: berisi asset yang bisa akses public
 - `src`: berisi semua folder pendukung
+  - `assets`: folder berisikan utilitas seperti css, icons, dan gambar
   - `components`: berisi reusable komponen yang dipakai di banyak tempat
-  - `routes`: default routes. Disini tidak boleh ada file/folder lain selain untuk routes.
+  - `config`: Folder untuk menyimpan konfigurasi dari .env lokal
+  - `store`: Folder untuk menyimpan utilities file API.
+    - `actions`: Folder untuk menyimpan semua action API.
+    - `actionType`: Folder untuk menyimpan semua tipe dari action yang digunakan.
+    - `reducers`: Folder untuk menyimpan semua kontrol yang dapat di gunakan oleh action tertentu.
+  - `utils`: (jika diperlukan): folder yang berisi kumpulan variable pembantu
+  - `views`: folder ini berisi splitting component. Misal pada Homepage, setiap section dipecah menjadi component, maka splitting component tersebut ditaroh disini.
 
 ### Important Branch
 
